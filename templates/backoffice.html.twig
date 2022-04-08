@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acces securisé!{% endblock %}
+
+{% block body %}
+
+{% if app.user and is_granted('ROLE_ADMIN') %}
+<div class="container-fluid">
+    <div class="row">
+        <h3 class=" mb-4"><b>Backoffice</b></h3>
+        <table class="table table-striped w-50">
+            <thead class="table-white">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nom Client</th>
+                    <th scope="col">Mail</th>
+                    <th scope="col">Sujet</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Status</th>
+                    <th class="col-1" scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in groupUserMail %}
+                <tr>
+                    <th scope="row">{{contact.id}}</th>
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.mail}}</td>
+                    <td>{{contact.subject}}</td>
+                    <td>{{contact.message|slice(0, 40)}}</td>
+                    
+                    {% if contact.treated == false %}
+                        <td class="treatedBO">{{contact.treated}}</td>
+                    {% else %}
+                        <td>Traité</td>
+                    {% endif %}
+                    <td style="font-size:1.4rem;">
+                        <a class="mr-2" href="{{ path('contact', {'id': contact.id,'mail': contact.mail}) }}">
+                        <i class="far fa-eye"></i></a> 
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {{knp_pagination_render(groupUserMail)}}
+    </div>
+</div>
+
+{% else %}
+<h3 class=" mb-4"><b>Connectez vous</b></h3>  
+{% endif %}
+
+{% endblock %}
+
