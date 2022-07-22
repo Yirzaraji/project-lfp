@@ -45,6 +45,17 @@ class UserRepository extends ServiceEntityRepository
         }
     }
 
+    public function findAllExceptCurrentUser($value)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.id != :val')
+            ->setParameter('val', $value)
+            ->orderBy('u.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}message{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <h3 class=" mb-4"><b>CONVERSATIONS</b></h3>
+        {# {{dump(users.0.id)}}
+        {% for conversation in app.user.receiver %}
+        <a href="{{ path('app_private_message', {'recipient': users.0.id}) }}">
+            <div class="col-md-10 p-5 bg-dark ml-2 mb-1">
+                <img src="https://via.placeholder.com/22x22" alt="">{{conversation.id}} {{conversation.message}}<br>
+            </div>
+        </a>
+        {% endfor %} #}
+        
+        {% for user in users %}
+                <a href="{{ path('app_private_message', {'recipient': user.id}) }}">
+                    <div class="col-md-10 bg-dark m-1 rounded">
+                        <img class="card-img-top" src="" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{user.login}}</h5>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}  
+    </div>
+</div>
+{% endblock %}

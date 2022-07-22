@@ -23,9 +23,19 @@ class AppFixtures extends Fixture
             $user->setHash($hash)
                 ->setLogin('test');
 
-            $manager->persist($user);
-            $manager->flush();
+        $user2 = new User;        
+        $hash2 = $this->encoder->encodePassword($user, 'user');
+        $user2->setHash($hash2)
+             ->setLogin('testuser');
+        
+        $user3 = new User;        
+        $hash3 = $this->encoder->encodePassword($user, 'admin');
+        $user3->setHash($hash3)
+              ->setLogin('testuser2');
 
+        $manager->persist($user);
+        $manager->persist($user2);
+        $manager->persist($user3);
         $manager->flush();
     }
 }

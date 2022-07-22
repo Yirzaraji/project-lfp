@@ -1,0 +1,101 @@
+.navbg{
+  background-color: #263e84;
+  height: 70px;
+}
+
+.NavDesktop {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .navButton a {
+    text-decoration: none;
+    margin-left: 6%;
+    font-weight: bold;
+    color: white;
+    border-radius: 30px;
+    padding-left: 11px;
+    padding-right: 11px;
+    transition: 0.4s;
+  }
+
+.navButton a:hover{
+  color: #263e84;
+  transition: 0.4s;
+  background-color: rgb(255, 255, 255);
+  transition: 0.4s;
+  cursor: pointer;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+  
+  .NavDesktopSimple {
+    display: flex;
+    /* padding-right: 5%;
+    padding-top: 1%; */
+    height: 65px;
+  }
+  
+  .navButtonSimple a {
+    margin-left: 6%;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: 0.4s;
+  }
+
+  .navButtonSimple a:hover{
+    background-color: rgb(255, 255, 255);
+    color: #161616;
+    transition: 0.4s;
+    cursor: pointer;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 30px;  
+  }
+  
+  .simpleNavBar {
+    background: rgba(65, 35, 191, 1);
+    background: -moz-linear-gradient(
+      left,
+      rgba(65, 35, 191, 1) 0%,
+      rgba(67, 32, 182, 1) 12%,
+      rgba(80, 11, 118, 1) 96%
+    );
+    background: -webkit-gradient(
+      left top,
+      right top,
+      color-stop(0%, rgba(65, 35, 191, 1)),
+      color-stop(12%, rgba(67, 32, 182, 1)),
+      color-stop(96%, rgba(80, 11, 118, 1))
+    );
+    background: -webkit-linear-gradient(
+      left,
+      rgba(65, 35, 191, 1) 0%,
+      rgba(67, 32, 182, 1) 12%,
+      rgba(80, 11, 118, 1) 96%
+    );
+    background: -o-linear-gradient(
+      left,
+      rgba(65, 35, 191, 1) 0%,
+      rgba(67, 32, 182, 1) 12%,
+      rgba(80, 11, 118, 1) 96%
+    );
+    background: -ms-linear-gradient(
+      left,
+      rgba(65, 35, 191, 1) 0%,
+      rgba(67, 32, 182, 1) 12%,
+      rgba(80, 11, 118, 1) 96%
+    );
+    background: linear-gradient(
+      to right,
+      rgba(65, 35, 191, 1) 0%,
+      rgba(67, 32, 182, 1) 12%,
+      rgba(80, 11, 118, 1) 96%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4123bf', endColorstr='#500b76', GradientType=1 );
+  }

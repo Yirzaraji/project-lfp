@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="row navbg">
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-4">
+            <nav>
+            <div class="NavDesktop d-none d-sm-flex">
+                <div class="navButton"><a href="{{ path('app_home_page')}}">HOME</a></div>
+                <div class="navButton"><a href="{{path('app_conversations')}}">MESSAGES</a></div>
+                <div class="navButton"><a href="#ankor_contact">CONTACT</a></div>
+                {% if app.user %}
+                <div class="navButton"><a class="h5" href=""><i class="fas fa-users-cog"></i></a></div>
+                {% else %}
+                <div class="navButton"><a class="h5" href="{{ path('account_login') }}"><i class="fas fa-user-lock"></i></a></div>
+                {% endif %}
+            </div>
+            </nav>
+        </div>
+    </div>
+</div>

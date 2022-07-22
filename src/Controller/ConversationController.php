@@ -4,13 +4,11 @@ namespace App\Controller;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class HomePageController extends AbstractController
+class ConversationController extends AbstractController
 {
     private $entityManager;
 
@@ -18,20 +16,27 @@ class HomePageController extends AbstractController
     {
         $this->entityManager = $entityManager;
     }
-
+    
     /**
-     * @Route("/", name="app_home_page")
+     * @Route("/conversations", name="app_conversations")
      */
-    public function home(Request $request, ManagerRegistry $doctrine): Response
+    public function conversations(): Response
     {
-        //$entityManager = $doctrine->getManager();
         $repo = $this->entityManager->getRepository(User::class);
         $users = $repo->findAllExceptCurrentUser($this->getUser());
 
-        
-        
-        return $this->render('homepage.html.twig', [
+        return $this->render('conversation/conversations.html.twig', [
             'users' => $users
+        ]);
+    }
+
+    /**
+     * @Route("/conversation/{id}", name="app_conversation")
+     */
+    public function conversation(): Response
+    {
+        return $this->render('conversation/conversation.html.twig', [
+            
         ]);
     }
 }

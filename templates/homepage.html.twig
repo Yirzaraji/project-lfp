@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block body %}
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-12  d-flex justify-content-center mt-3">
+            {% for user in users %}
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://via.placeholder.com/150x80" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{user.login}}</h5>
+                        <p class="card-text">Hello there im fan of Star wars</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">France</li>
+                        <li class="list-group-item">Speak english</li>
+                        <li class="list-group-item">LF friends</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="{{ path('app_profile', {'user': user.id}) }}">Show</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
